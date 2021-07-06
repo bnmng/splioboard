@@ -1,0 +1,27 @@
+<html>
+  <head>
+    <title>People List</title>
+  </head>
+  <body>
+    <div id="list">
+    </div>
+<script>
+  function loadDoc() {
+    var xhttp;
+    xhttp=new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      displayList(this);
+    }
+  };
+  xhttp.open("GET", 'peoplelist.json', true);
+  xhttp.send();
+}
+function displayList(xhttp) {
+  document.getElementById("list").innerHTML =
+  xhttp.responseText;
+}
+loadDoc();
+</script>
+  </body>
+</html>
